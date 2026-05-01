@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LOGAN UUL063 - GESTIÓN & CRECIMIENTO CO.</title>
+    <title>LOGAN UUL063 - Edición Maestro G&C</title>
     
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png">
     
     <style>
         :root {
-            --negro-profundo: #0a0a0b;
+            --negro: #0a0a0b;
             --azul-suave: #5da9e9;
             --plateado: #c0c0c2;
-            --gris-tarjeta: #161b22;
-            --texto-brillante: #f0f6fc;
-            --verde-exito: #2ecc71;
+            --gris-card: #161b22;
+            --texto: #f0f6fc;
+            --verde: #2ecc71;
         }
 
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: var(--negro-profundo); padding: 10px; margin: 0; color: var(--texto-brillante); }
-
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--negro); padding: 10px; margin: 0; color: var(--texto); }
+        
         .header { 
             background: linear-gradient(180deg, #161b22 0%, #0a0a0b 100%); 
-            color: var(--plateado); padding: 20px; text-align: center; 
-            border-radius: 0 0 25px 25px; border-bottom: 2px solid var(--azul-suave);
+            padding: 20px; text-align: center; border-radius: 0 0 25px 25px; 
+            border-bottom: 2px solid var(--azul-suave); box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .resumen-card { 
-            background: var(--gris-tarjeta); padding: 15px; border-radius: 18px; 
+            background: var(--gris-card); padding: 15px; border-radius: 18px; 
             margin: 15px 0; text-align: center; border: 1px solid #30363d;
         }
         .resumen-card h2 { margin: 5px 0; font-size: 1.8rem; color: var(--azul-suave); }
 
-        .card { background: var(--gris-tarjeta); padding: 18px; border-radius: 18px; border: 1px solid #30363d; margin-bottom: 20px; }
+        .card { background: var(--gris-card); padding: 18px; border-radius: 18px; border: 1px solid #30363d; margin-bottom: 20px; }
         label { display: block; margin-top: 10px; font-weight: bold; color: var(--plateado); font-size: 0.7rem; text-transform: uppercase; }
         
         input, select { 
@@ -44,72 +44,73 @@
         #btnGuardar { 
             background: linear-gradient(135deg, #1f4068 0%, #16213e 100%); 
             color: var(--plateado); border: 1px solid var(--azul-suave); 
-            padding: 16px; width: 100%; border-radius: 12px; 
-            font-weight: bold; margin-top: 20px; font-size: 1rem;
+            padding: 18px; width: 100%; border-radius: 15px; 
+            font-weight: bold; margin-top: 25px; font-size: 1rem; cursor: pointer;
         }
 
-        #buscador { width:100%; border: 1px solid var(--azul-suave); background: #0d1117; padding: 12px; border-radius: 10px; color: white; margin-bottom: 15px; box-sizing: border-box; }
+        #buscador { width:100%; border: 1px solid var(--azul-suave); background: #0d1117; padding: 12px; border-radius: 10px; color: white; margin: 15px 0; box-sizing: border-box; }
 
-        .contenedor-tabla { overflow-x: auto; background: var(--gris-tarjeta); border-radius: 15px; border: 1px solid #30363d; }
-        table { width: 100%; border-collapse: collapse; min-width: 900px; }
-        th { background: #0d1117; color: var(--azul-suave); padding: 12px; font-size: 0.7rem; text-transform: uppercase; }
+        .contenedor-tabla { overflow-x: auto; background: var(--gris-card); border-radius: 15px; border: 1px solid #30363d; }
+        table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+        th { background: #0d1117; color: var(--azul-suave); padding: 15px; font-size: 0.7rem; text-transform: uppercase; text-align: center; }
         td { border-bottom: 1px solid #21262d; padding: 12px; font-size: 0.8rem; text-align: center; color: var(--plateado); }
 
-        .pago-tag { font-size: 0.65rem; background: #232d3b; padding: 4px 8px; border-radius: 6px; color: var(--azul-suave); font-weight: bold; border: 1px solid #30363d; }
+        .pago-tag { font-size: 0.65rem; background: #232d3b; padding: 4px 8px; border-radius: 6px; color: var(--azul-suave); font-weight: bold; }
 
         .botones-finales { display: flex; gap: 10px; margin-top: 20px; }
-        .btn-sec { background: #30363d; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; font-size: 0.8rem; }
-        .btn-excel { background: var(--verde-exito); color: white; }
+        .btn-sec { background: #30363d; color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 0.8rem; cursor: pointer; }
+        .btn-excel { background: var(--verde); }
 
-        .footer-empresa { 
-            margin-top: 40px; background: white; padding: 25px; 
+        .footer-g-c { 
+            margin-top: 40px; background: white; padding: 30px 15px; 
             border-radius: 30px 30px 0 0; text-align: center; color: #1a1a1a;
         }
         .btn-whatsapp { 
             display: inline-flex; align-items: center; justify-content: center; 
             background: #25d366; color: white; padding: 12px 25px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; margin-top: 10px;
+            text-decoration: none; font-weight: bold; margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1 style="margin:0; font-size: 1.2rem;">LOGAN GRIS COMET</h1>
-        <div style="color: var(--azul-suave); font-weight: bold;">PLACA: UUL-063</div>
+        <h1 style="margin:0; font-size: 1.2rem; letter-spacing: 2px;">LOGAN GRIS COMET</h1>
+        <div style="color: var(--azul-suave); font-weight: bold; font-size: 0.9rem;">UUL-063</div>
     </div>
 
     <div class="resumen-card">
-        <p style="margin:0; font-size: 0.8rem;">Inversión Total Acumulada</p>
+        <p style="margin:0; font-size: 0.8rem; color: var(--plateado);">Inversión Total Acumulada</p>
         <h2 id="totalGastado">$ 0</h2>
-        <p id="totalRegistros" style="color:var(--azul-suave); margin:5px 0 0 0; font-size:0.8rem;">0 Registros</p>
+        <p id="totalRegistros" style="color:var(--azul-suave); margin:5px 0 0 0; font-size:0.8rem;">0 Mantenimientos</p>
     </div>
 
     <div class="card">
-        <label>Fecha</label>
+        <label>Fecha del Servicio</label>
         <input type="date" id="fecha">
         
-        <label>Servicio</label>
+        <label>Tipo de Servicio</label>
         <select id="servicio">
             <option value="Cambio de aceite">Cambio de aceite</option>
             <option value="Frenos">Frenos</option>
             <option value="Sincronización">Sincronización</option>
-            <option value="Llantas">Llantas</option>
-            <option value="Batería">Batería</option>
+            <option value="Llantas / Alineación">Llantas / Alineación</option>
+            <option value="Batería / Eléctrico">Batería / Eléctrico</option>
             <option value="SOAT / Seguros">SOAT / Seguros</option>
             <option value="Impuestos">Impuestos</option>
-            <option value="Lavado">Lavado General</option>
+            <option value="Lavado General">Lavado General</option>
+            <option value="Reparación Mecánica">Reparación Mecánica</option>
             <option value="Otro">Otro servicio</option>
         </select>
 
-        <label>Marca Repuesto</label>
-        <input type="text" id="marca" placeholder="Ej: Elf, Bosch">
+        <label>Marca del Repuesto / Insumo</label>
+        <input type="text" id="marca" placeholder="Ej: Motul, Bosch, Michelin">
 
         <label>Lugar / Taller</label>
-        <input type="text" id="lugar" placeholder="¿Dónde se hizo?">
+        <input type="text" id="lugar" placeholder="Nombre del taller o almacén">
 
-        <label>Detalle Adicional</label>
-        <input type="text" id="detalle" placeholder="Observaciones">
+        <label>Detalle del Trabajo</label>
+        <input type="text" id="detalle" placeholder="¿Qué se le hizo exactamente?">
 
         <label>Valor Pagado ($)</label>
         <input type="number" id="precio" placeholder="0">
@@ -119,19 +120,21 @@
             <option value="Efectivo">Efectivo</option>
             <option value="Nequi">Nequi</option>
             <option value="Daviplata">Daviplata</option>
-            <option value="Tarjeta">Tarjeta</option>
+            <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+            <option value="Tarjeta de Débito">Tarjeta de Débito</option>
+            <option value="Transferencia">Transferencia</option>
         </select>
 
         <label>Kilometraje Actual</label>
-        <input type="number" id="km" placeholder="KM hoy">
+        <input type="number" id="km" placeholder="KM al momento del servicio">
 
-        <label>Próximo Kilometraje</label>
-        <input type="number" id="prox" placeholder="KM sugerido">
+        <label>Kilometraje Próximo Servicio</label>
+        <input type="number" id="prox" placeholder="KM sugerido para volver">
         
-        <button id="btnGuardar" onclick="guardar()">GUARDAR REGISTRO PROFESIONAL</button>
+        <button id="btnGuardar" onclick="guardar()">REGISTRAR EN BITÁCORA G&C</button>
     </div>
 
-    <input type="text" id="buscador" onkeyup="filtrar()" placeholder="🔍 Buscar servicio o fecha...">
+    <input type="text" id="buscador" onkeyup="filtrar()" placeholder="🔍 Buscar por fecha, servicio, marca o lugar...">
 
     <div class="contenedor-tabla">
         <table id="tablaMain">
@@ -139,9 +142,10 @@
                 <tr>
                     <th>Fecha / Servicio</th>
                     <th>Marca / Lugar</th>
+                    <th>Detalle</th>
                     <th>Valor / Pago</th>
                     <th>KM Actual</th>
-                    <th>Próximo KM</th>
+                    <th>KM Próximo</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -150,21 +154,25 @@
     </div>
 
     <div class="botones-finales">
-        <button class="btn-sec btn-excel" onclick="exportar()">📊 EXCEL</button>
-        <button class="btn-sec" onclick="document.getElementById('inputFile').click()">📥 IMPORTAR</button>
+        <button class="btn-sec btn-excel" onclick="exportar()">📊 DESCARGAR EXCEL</button>
+        <button class="btn-sec" onclick="document.getElementById('inputFile').click()">📥 IMPORTAR DATOS</button>
     </div>
     <input type="file" id="inputFile" style="display:none" onchange="importar(this)" accept=".csv">
 
-    <div class="footer-empresa">
-        <div style="font-weight: bold; font-size: 1.2rem;">
+    <div class="footer-g-c">
+        <div style="font-weight: 800; font-size: 1.3rem;">
             <span style="color:#0056b3">GESTIÓN &</span> <span style="color:#555">CRECIMIENTO CO.</span>
         </div>
-        <div style="font-size: 0.8rem; color: #666; font-style: italic;">"De la estrategia a los resultados"</div>
-        <a href="https://wa.me/573150581701" class="btn-whatsapp" target="_blank">💬 Soporte Técnico G&C</a>
+        <div style="font-size: 0.85rem; color: #333; margin-top: -3px;">Asesoría Empresarial</div>
+        <div style="font-size: 0.75rem; color: #666; font-style: italic; margin-bottom: 15px;">"De la estrategia a los resultados"</div>
+        
+        <a href="https://wa.me/573150581701" class="btn-whatsapp" target="_blank">
+            💬 Soporte Técnico WhatsApp
+        </a>
     </div>
 
     <script>
-        const KEY = 'DB_LOGAN_UUL063_MAESTRO';
+        const KEY = 'DB_LOGAN_UUL063_FINAL_PRO';
 
         document.addEventListener("DOMContentLoaded", () => dibujar());
 
@@ -181,13 +189,18 @@
                 km: document.getElementById('km').value || "0",
                 prox: document.getElementById('prox').value || "0"
             };
-            if(!i.fecha || !i.precio) return alert("Completa Fecha y Precio");
+            
+            if(!i.fecha || !i.precio) return alert("Error: La fecha y el valor son obligatorios.");
+
             let h = JSON.parse(localStorage.getItem(KEY)) || [];
             h.push(i);
             localStorage.setItem(KEY, JSON.stringify(h));
+            
+            // Limpiar campos
             ['marca', 'lugar', 'detalle', 'precio', 'km', 'prox'].forEach(id => document.getElementById(id).value = "");
+            
             dibujar();
-            alert("✅ Guardado en base de datos G&C");
+            alert("✅ Registro guardado exitosamente.");
         }
 
         function dibujar() {
@@ -195,25 +208,29 @@
             const h = JSON.parse(localStorage.getItem(KEY)) || [];
             tbody.innerHTML = "";
             let total = 0;
+            
             h.sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+            
             h.forEach(i => {
                 total += Number(i.precio);
                 const fila = tbody.insertRow();
                 fila.innerHTML = `
-                    <td><b>${i.fecha}</b><br>${i.servicio}</td>
+                    <td><b>${i.fecha}</b><br><span style="color:var(--azul-suave)">${i.servicio}</span></td>
                     <td><b>${i.marca}</b><br><small>${i.lugar}</small></td>
-                    <td><b style="color:var(--azul-suave)">$${Number(i.precio).toLocaleString()}</b><br><span class="pago-tag">${i.metodo}</span></td>
+                    <td>${i.detalle}</td>
+                    <td><b style="color:var(--verde)">$${Number(i.precio).toLocaleString()}</b><br><span class="pago-tag">${i.metodo}</span></td>
                     <td>${Number(i.km).toLocaleString()}</td>
-                    <td>${Number(i.prox).toLocaleString()}</td>
-                    <td><button onclick="borrar(${i.id})" style="background:transparent; border:1px solid #444; color:red; border-radius:5px; padding:5px;">X</button></td>
+                    <td style="color:var(--azul-suave); font-weight:bold">${Number(i.prox).toLocaleString()}</td>
+                    <td><button onclick="borrar(${i.id})" style="background:transparent; border:1px solid #444; color:#ff4d4d; border-radius:5px; padding:5px 8px; cursor:pointer">X</button></td>
                 `;
             });
+            
             document.getElementById('totalGastado').innerText = "$ " + total.toLocaleString();
-            document.getElementById('totalRegistros').innerText = h.length + " Registros Totales";
+            document.getElementById('totalRegistros').innerText = h.length + " Registros en total";
         }
 
         function borrar(id) {
-            if(confirm("¿Eliminar registro?")) {
+            if(confirm("¿Seguro que desea eliminar este registro técnico?")) {
                 let h = JSON.parse(localStorage.getItem(KEY)) || [];
                 h = h.filter(x => x.id !== id);
                 localStorage.setItem(KEY, JSON.stringify(h));
@@ -229,27 +246,43 @@
 
         function exportar() {
             const h = JSON.parse(localStorage.getItem(KEY)) || [];
+            if(h.length === 0) return alert("No hay datos para exportar");
+            
             let csv = "sep=;\nFecha;Servicio;Marca;Lugar;Detalle;Precio;Metodo;KM_Actual;KM_Prox\n";
-            h.forEach(i => csv += `${i.fecha};${i.servicio};${i.marca};${i.lugar};${i.detalle};${i.precio};${i.metodo};${i.km};${i.prox}\n`);
+            h.forEach(i => {
+                csv += `${i.fecha};${i.servicio};${i.marca};${i.lugar};${i.detalle};${i.precio};${i.metodo};${i.km};${i.prox}\n`;
+            });
+            
             const blob = new Blob(["\ufeff", csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = 'Mantenimiento_Logan_UUL063.csv';
+            link.download = 'Reporte_Logan_UUL063_GC.csv';
             link.click();
         }
 
         function importar(input) {
             const reader = new FileReader();
             reader.onload = function() {
-                const lines = reader.result.split('\n').slice(2);
-                let historial = [];
-                lines.forEach(line => {
-                    const d = line.split(';');
-                    if(d.length > 5) historial.push({ id: Date.now()+Math.random(), fecha: d[0], servicio: d[1], marca: d[2], lugar: d[3], detalle: d[4], precio: d[5], metodo: d[6], km: d[7], prox: d[8] });
-                });
-                localStorage.setItem(KEY, JSON.stringify(historial));
-                dibujar();
-                alert("✅ Importado con éxito");
+                try {
+                    const lines = reader.result.split('\n').slice(2);
+                    let historial = [];
+                    lines.forEach(line => {
+                        const d = line.split(';');
+                        if(d.length >= 8) {
+                            historial.push({
+                                id: Date.now() + Math.random(),
+                                fecha: d[0], servicio: d[1], marca: d[2],
+                                lugar: d[3], detalle: d[4], precio: d[5],
+                                metodo: d[6], km: d[7], prox: d[8] || "0"
+                            });
+                        }
+                    });
+                    localStorage.setItem(KEY, JSON.stringify(historial));
+                    dibujar();
+                    alert("✅ Datos importados correctamente");
+                } catch(e) {
+                    alert("Error al importar el archivo CSV.");
+                }
             };
             reader.readAsText(input.files[0]);
         }
