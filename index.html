@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LOGAN UUL063 - Edición Silver & Blue</title>
+    
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png">
+    
+    <style>
+        :root {
+            --negro-profundo: #0a0a0b;
+            --azul-suave: #5da9e9; /* Azul cielo suave */
+            --plateado: #c0c0c2;   /* Plateado tipo Gris Comet */
+            --gris-tarjeta: #161b22;
+            --texto-brillante: #f0f6fc;
+            --verde-exito: #2ecc71;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background-color: var(--negro-profundo); 
+            padding: 10px; 
+            margin: 0; 
+            color: var(--texto-brillante); 
+        }
+
+        .header { 
+            background: linear-gradient(180deg, #161b22 0%, #0a0a0b 100%); 
+            color: var(--plateado); 
+            padding: 25px 15px; 
+            text-align: center; 
+            border-radius: 0 0 25px 25px; 
+            border-bottom: 2px solid var(--azul-suave);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .resumen-card { 
+            background: var(--gris-tarjeta); 
+            padding: 20px; 
+            border-radius: 18px; 
+            margin: 15px 0; 
+            text-align: center; 
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .resumen-card h2 { margin: 5px 0; font-size: 2rem; color: var(--azul-suave); text-shadow: 0 0 10px rgba(93,169,233,0.3); }
+
+        .card { 
+            background: var(--gris-tarjeta); 
+            padding: 18px; 
+            border-radius: 18px; 
+            border: 1px solid #30363d;
+            margin-bottom: 20px; 
+        }
+        label { display: block; margin-top: 12px; font-weight: bold; color: var(--plateado); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        input, select { 
+            width: 100%; padding: 14px; margin-top: 6px; border-radius: 12px; 
+            border: 1px solid #30363d; box-sizing: border-box; font-size: 16px; 
+            background: #0d1117; color: white; outline: none;
+        }
+        input:focus { border-color: var(--azul-suave); }
+
+        #btnGuardar { 
+            background: linear-gradient(135deg, #1f4068 0%, #16213e 100%); 
+            color: var(--plateado); 
+            border: 1px solid var(--azul-suave); 
+            padding: 18px; width: 100%; border-radius: 15px; 
+            font-weight: bold; margin-top: 25px; font-size: 1rem; 
+            letter-spacing: 1px; cursor: pointer;
+        }
+
+        .contenedor-tabla { overflow-x: auto; background: var(--gris-tarjeta); border-radius: 15px; border: 1px solid #30363d; }
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        th { background: #0d1117; color: var(--azul-suave); padding: 15px; font-size: 0.7rem; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+        td { border-bottom: 1px solid #21262d; padding: 14px; font-size: 0.85rem; text-align: center; color: var(--plateado); }
+
+        /* SECCIÓN DE LA EMPRESA (G&C) */
+        .footer-empresa { 
+            margin-top: 40px; 
+            background: white; /* Fondo blanco para que el logo resalte como en la imagen */
+            padding: 30px 15px; 
+            border-radius: 30px 30px 0 0; 
+            text-align: center; 
+            color: #1a1a1a;
+        }
+        .nombre-empresa { font-weight: 800; font-size: 1.3rem; margin-bottom: 2px; }
+        .nombre-empresa span.azul { color: #0056b3; }
+        .nombre-empresa span.gris { color: #555; }
+        .eslogan { font-size: 0.75rem; color: #666; font-style: italic; margin-bottom: 15px; }
+        
+        .btn-whatsapp { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            background: #25d366; color: white; padding: 12px 25px; border-radius: 50px; 
+            text-decoration: none; font-weight: bold; font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3); 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 style="margin:0; font-size: 1.3rem; letter-spacing: 2px;">LOGAN GRIS COMET</h1>
+        <div style="color: var(--azul-suave); font-weight: bold; font-size: 0.9rem; margin-top: 5px;">UUL-063</div>
+    </div>
+
+    <div class="resumen-card">
+        <p style="color: var(--plateado); margin: 0; font-size: 0.8rem;">Inversión Total en Mantenimiento</p>
+        <h2 id="totalGastado">$ 0</h2>
+    </div>
+
+    <div class="card">
+        <label>Fecha del Servicio</label>
+        <input type="date" id="fecha">
+        
+        <label>Categoría de Servicio</label>
+        <select id="servicio">
+            <option value="Mantenimiento Preventivo">Mantenimiento Preventivo</option>
+            <option value="Cambio de Aceite">Cambio de Aceite</option>
+            <option value="Sistema de Frenos">Sistema de Frenos</option>
+            <option value="Llantas / Suspensión">Llantas / Suspensión</option>
+            <option value="Batería y Eléctrico">Batería y Eléctrico</option>
+            <option value="Documentación / SOAT">Documentación / SOAT</option>
+            <option value="Lavado Especializado">Lavado Especializado</option>
+            <option value="Otro">Otro servicio</option>
+        </select>
+
+        <label>Detalle Técnico / Repuestos</label>
+        <input type="text" id="detalle" placeholder="Ej: Kit de distribución, pastillas...">
+
+        <label>Costo del Servicio ($)</label>
+        <input type="number" id="precio" placeholder="0">
+
+        <label>Kilometraje Actual</label>
+        <input type="number" id="km" placeholder="KM">
+
+        <button id="btnGuardar" onclick="guardar()">REGISTRAR EN GESTIÓN & CRECIMIENTO</button>
+    </div>
+
+    <div class="contenedor-tabla">
+        <table id="tablaMain">
+            <thead>
+                <tr>
+                    <th>Fecha / Categoría</th>
+                    <th>Detalle Técnico</th>
+                    <th>Inversión</th>
+                    <th>Kilometraje</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="footer-empresa">
+        <div class="nombre-empresa">
+            <span class="azul">GESTIÓN &</span> <span class="gris">CRECIMIENTO CO.</span>
+        </div>
+        <div style="font-size: 0.85rem; color: #333; margin-top: -3px;">Asesoría Empresarial</div>
+        <div class="eslogan">De la estrategia a los resultados</div>
+        
+        <a href="https://wa.me/573150581701" class="btn-whatsapp" target="_blank">
+            💬 Contactar Soporte Técnico
+        </a>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <script>
+        const KEY = 'DB_LOGAN_UUL063_FINAL'; 
+
+        document.addEventListener("DOMContentLoaded", () => dibujar());
+
+        function guardar() {
+            const i = {
+                id: Date.now(),
+                fecha: document.getElementById('fecha').value,
+                servicio: document.getElementById('servicio').value,
+                detalle: document.getElementById('detalle').value || "-",
+                precio: document.getElementById('precio').value,
+                km: document.getElementById('km').value || "0"
+            };
+            if(!i.fecha || !i.precio) return alert("Por favor complete fecha y costo");
+            let h = JSON.parse(localStorage.getItem(KEY)) || [];
+            h.push(i);
+            localStorage.setItem(KEY, JSON.stringify(h));
+            document.getElementById('detalle').value = "";
+            document.getElementById('precio').value = "";
+            document.getElementById('km').value = "";
+            dibujar();
+            alert("✅ Registro guardado exitosamente");
+        }
+
+        function dibujar() {
+            const tbody = document.querySelector('#tablaMain tbody');
+            const h = JSON.parse(localStorage.getItem(KEY)) || [];
+            tbody.innerHTML = "";
+            let total = 0;
+            h.sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+            h.forEach(i => {
+                total += Number(i.precio);
+                const fila = tbody.insertRow();
+                fila.innerHTML = `
+                    <td><b>${i.fecha}</b><br><span style="color:var(--azul-suave)">${i.servicio}</span></td>
+                    <td style="color:var(--plateado)">${i.detalle}</td>
+                    <td style="color:var(--verde-exito); font-weight:bold">$${Number(i.precio).toLocaleString()}</td>
+                    <td>${Number(i.km).toLocaleString()} KM</td>
+                    <td><button onclick="borrar(${i.id})" style="background:transparent; border:1px solid #444; color:#ff4d4d; border-radius:5px; padding:5px 8px; cursor:pointer">X</button></td>
+                `;
+            });
+            document.getElementById('totalGastado').innerText = "$ " + total.toLocaleString();
+        }
+
+        function borrar(id) {
+            if(confirm("¿Desea eliminar este registro?")) {
+                let h = JSON.parse(localStorage.getItem(KEY)) || [];
+                h = h.filter(x => x.id !== id);
+                localStorage.setItem(KEY, JSON.stringify(h));
+                dibujar();
+            }
+        }
+    </script>
+</body>
+</html>
